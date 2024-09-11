@@ -5,9 +5,9 @@ import { PopulationData } from '../entity/population-data';
 export class SingleCountryAdapter {
   constructor(
     private readonly country?: any,
-    private readonly population?: { populationCounts: any },
+    private readonly population?: { data: { populationCounts: any } },
     private readonly flag?: any,
-  ) {}
+  ) { }
 
   convert(): DetailedCountry {
     return {
@@ -22,7 +22,7 @@ export class SingleCountryAdapter {
           countryCode: item.countryCode,
         } satisfies BorderCountry;
       }),
-      populationData: this.population?.populationCounts?.map((item: any) => {
+      populationData: this.population?.data.populationCounts?.map((item: any) => {
         return {
           year: item.year,
           value: item.value,

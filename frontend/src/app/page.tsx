@@ -1,48 +1,65 @@
-import axios from "@/lib/axios/axios";
-import { ArrowRightIcon } from "@radix-ui/react-icons";
+'use client'
 
-type Country = {
-  countryName: string;
-  countryCode: string;
-};
+import { Country } from "@/domain";
+import api from "@/lib/axios/axios";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-export default async function Page() {
-  async function fetchCountries(): Promise<Country[]> {
-    try {
-      const { data } = await axios.get<Country[]>("/countries")
-      return data
-    } catch (err) {
-      return []
+export default function Page() {
+  const router = useRouter()
+
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    async function fetchCountries() {
+      try {
+        const { data } = await api.get("/countries")
+        setCountries(data)
+      } catch (err) {
+        setCountries([])
+      }
+      setLoading(false)
     }
-  }
-
-  const countries = await fetchCountries();
+    fetchCountries()
+  }, [])
 
   return (
     <div className="container mx-auto p-2 md:p-5 md:px-0">
       <main className="flex text-left">
-        <table className="bg-slate-100 flex-1 border-collapse border border-slate-300 table-auto">
-          <thead className="bg-slate-300">
+        <table className="bg-gray-50 flex-1 border-collapse border table-auto">
+          <thead className="bg-gray-100">
             <tr>
-              <th className="p-5 py-2">Name</th>
-              <th className="p-5 py-2">Code</th>
-              <th className="p-5 py-2"></th>
+              <th className="px-6 py-2">
+                <span className={`flex items-center gap-1`}>
+                  Name
+                </span>
+              </th>
+              <th className="px-6 py-2">
+                <span className="flex items-center gap-1">
+                  Code
+                </span>
+              </th>
             </tr>
           </thead>
           <tbody>
+            {loading && (
+              <tr className="hover:bg-gray-200 cursor-pointer animate-pulse">
+                <td className="px-6 py-3 border-y">
+                  <div className="h-2 bg-gray-300 rounded"></div>
+                </td>
+                <td className="px-6 py-3 border-y">
+                  <div className="h-2 bg-gray-300 rounded"></div>
+                </td>
+              </tr>
+            )}
             {countries.map((country: Country) => (
-              <tr key={country.countryCode}>
-                <td className="p-5 py-2 border-y">{country.countryName}</td>
-                <td className="p-5 py-2 border-y">
-                  <div className="bg-slate-300 w-fit px-3 rounded">
+              <tr onClick={() => router.push(`/${country.countryCode}`)} key={country.countryCode} className="hover:bg-gray-200 cursor-pointer">
+                <td className="px-6 py-1 border-y">{country.countryName}</td>
+                <td className="px-6 py-1 border-y">
+                  <div className="bg-gray-300 font-medium text-gray-700 w-fit px-3 rounded">
                     {country.countryCode}
                   </div>
-                </td>
-                <td className="p-5 py-2 border-y">
-                  <button className="ms-auto flex bg-slate-500 gap-2 text-slate-50 px-2 py-1 rounded items-center hover:bg-slate-400 ease-in-out duration-300">
-                    <div className="hidden md:inline">See Info</div>
-                    <ArrowRightIcon />
-                  </button>
                 </td>
               </tr>
             ))}

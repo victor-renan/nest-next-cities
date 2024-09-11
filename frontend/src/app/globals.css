@@ -6,6 +6,10 @@
   --nav-h: 96px;
 }
 
+html {
+  font-family: var(--font-geist-sans);
+}
+
 body {
   scroll-margin-top: var(--nav-h);
 }
@@ -16,4 +20,10 @@ body {
 
 .app-content {
   margin-top: var(--nav-h);
+  min-height: calc(100vh - var(--nav-h));
+  height: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: var(--color-blue);
 }

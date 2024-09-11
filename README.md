@@ -39,7 +39,7 @@ cd frontend
 cp .env.example >> .env.local
 ```
 
-Then, you must set the **BACKEND_URL** to the URL based on the port that relies on `backend/.env`, for example, if the port of `.env` is 3002, the **BACKEND_URL** will be `http://localhost:3002`. (Don't edit if you want to use the current example environment)
+Then, you must set the **NEXT_PUBLIC_BACKEND_URL** to the URL based on the port that relies on `backend/.env`, for example, if the port of `.env` is 3002, the **NEXT_PUBLIC_BACKEND_URL** will be `http://localhost:3002`. (Don't edit if you want to use the current example environment)
 
 At last, run the frontend with:
 

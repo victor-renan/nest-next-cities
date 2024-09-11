@@ -1,5 +1,5 @@
-import axios from "axios";
+import axx from "axios";
 
-export default axios.create({
-    baseURL: process.env.BACKEND_URL,
+export default axx.create({
+    baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
 })

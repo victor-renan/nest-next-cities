@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`antialiased divide-y ${geistSans.className}`}>
+      <body className={`antialiased ${geistSans.className}`}>
         <Navbar />
         <div className="app-content">
           {children}
