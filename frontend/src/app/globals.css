@@ -17,7 +17,3 @@ body {
 .app-content {
   margin-top: var(--nav-h);
 }
-
-tr:nth-child(even) {
-  background-color: var(--color-blue);
-}
