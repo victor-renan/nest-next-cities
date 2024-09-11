@@ -10,8 +10,8 @@ To run this web application you must follow the instructions below:
 First, clone this repo:
 
 ```bash
-git clone https://github.com/victor-renan/nest-next-cities
-cd next-next-cities
+git clone https://github.com/victor-renan/nest-next-countries
+cd next-next-countries
 ```
 #### 2. Backend
 
