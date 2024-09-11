@@ -21,7 +21,7 @@ cd backend
 cp .env.example >> .env
 ```
 
-Then, you must set the environment variables with the resticted data. (Don't edit for use the current example environment)
+Then, you must set the environment variables with the resticted data. (Don't edit if you want to use the current example environment)
 
 After that, you must install the dependencies and run the server:
 
@@ -32,10 +32,18 @@ npm run start:dev
 
 #### 3. Frontend
 
-Enter in the `frontend` folder, intall the dependencies and run the server. If you're in a Unix Like system, you can run:
+Enter in the `frontend` folder, and copy the content of the `.env.example` file to a `.env.local` file. If you're in a Unix Like system, you can run:
 
 ```bash
 cd frontend
+cp .env.example >> .env.local
+```
+
+Then, you must set the **BACKEND_URL** to the URL based on the port that relies on `backend/.env`, for example, if the port of `.env` is 3002, the **BACKEND_URL** will be `http://localhost:3002`. (Don't edit if you want to use the current example environment)
+
+At last, run the frontend with:
+
+```bash
 npm install
 npm run dev
 ```
