@@ -10,7 +10,8 @@ To run this web application you must follow the instructions below:
 First, clone this repo:
 
 ```bash
-git clone https://github.com/victor-renan/nest-next-cities
+git clone https://github.com/victor-renan/nest-next-countries
+cd next-next-countries
 ```
 #### 2. Backend
 
@@ -18,7 +19,7 @@ Enter in the `backend` folder and copy the content of the `.env.example` file to
 
 ```bash
 cd backend
-cp .env.example >> .env
+cp .env.example .env
 ```
 
 Then, you must set the environment variables with the resticted data. (Don't edit if you want to use the current example environment)
@@ -32,11 +33,11 @@ npm run start:dev
 
 #### 3. Frontend
 
-Enter in the `frontend` folder, and copy the content of the `.env.example` file to a `.env.local` file. If you're in a Unix Like system, you can run:
+After that, open another terminal tab or window and enter in the `frontend` folder, and copy the content of the `.env.example` file to a `.env.local` file. If you're in a Unix Like system, you can run:
 
 ```bash
 cd frontend
-cp .env.example >> .env.local
+cp .env.example .env.local
 ```
 
 Then, you must set the **NEXT_PUBLIC_BACKEND_URL** to the URL based on the port that relies on `backend/.env`, for example, if the port of `.env` is 3002, the **NEXT_PUBLIC_BACKEND_URL** will be `http://localhost:3002`. (Don't edit if you want to use the current example environment)
@@ -47,4 +48,5 @@ At last, run the frontend with:
 npm install
 npm run dev
 ```
+Now, the system will be running in the port `http://localhost:3001`
 
