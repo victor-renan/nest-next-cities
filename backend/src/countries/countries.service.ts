@@ -30,7 +30,7 @@ export class CountryService {
       this.httpService.get(`${process.env.SINGLE_COUNTRY_URL}/${code}`).pipe(
         catchError((err: AxiosError) => {
           this.logger.error(err.message);
-          throw 'Failed to get avaliable countries';
+          throw 'Failed to get the country info';
         }),
       ),
     );
