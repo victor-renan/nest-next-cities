@@ -28,7 +28,7 @@ export default function Page({
             setLoading(false)
         }
         fetchCountry()
-    }, [])
+    }, [country])
 
     if (!data && !loading) {
         notFound()
@@ -51,9 +51,13 @@ export default function Page({
                             </Link>
                             <h1 className="text-2xl md:text-4xl font-black">{data?.commonName}</h1>
                         </div>
-                        <div className="mb-5">
-                            <img src={data?.flag} className="border object-cover w-full h-[300px] md:w-full md:h-[400px] lg:w-[580px] rounded-lg" alt="Country Flag" />
-                        </div>
+                        {data?.flag ? (
+                            <div className="mb-5">
+                                <img src={data?.flag} className="border object-cover w-full h-[300px] md:w-full md:h-[400px] lg:w-[580px] rounded-lg" alt="Country Flag" />
+                            </div>
+                        ) : (
+                            <p className="my-4">The flag is not avaliable for this country!</p>
+                        )}
                         <div className="mb-4">
                             <h2 className="font-bold text-xl">Official Name</h2>
                             <p>{data?.officialName}</p>

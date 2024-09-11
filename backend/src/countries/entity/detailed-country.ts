@@ -7,5 +7,5 @@ export type DetailedCountry = {
   countryCode: string;
   borders: BorderCountry[] | null;
   populationData: PopulationData[];
-  flag: string;
+  flag: string | null;
 };
