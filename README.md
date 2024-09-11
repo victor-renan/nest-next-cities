@@ -11,6 +11,7 @@ First, clone this repo:
 
 ```bash
 git clone https://github.com/victor-renan/nest-next-cities
+cd next-next-cities
 ```
 #### 2. Backend
 
@@ -32,7 +33,7 @@ npm run start:dev
 
 #### 3. Frontend
 
-Enter in the `frontend` folder, and copy the content of the `.env.example` file to a `.env.local` file. If you're in a Unix Like system, you can run:
+After that, open another terminal tab or window and enter in the `frontend` folder, and copy the content of the `.env.example` file to a `.env.local` file. If you're in a Unix Like system, you can run:
 
 ```bash
 cd frontend
@@ -47,4 +48,5 @@ At last, run the frontend with:
 npm install
 npm run dev
 ```
+Now, the system will be running in the port `http://localhost:3001`
 
